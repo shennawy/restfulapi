@@ -1,5 +1,5 @@
 <?php
-
+//Buyer Extends User, shouldn't have its own table
 namespace App;
 
 use App\Transaction;

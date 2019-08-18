@@ -15,6 +15,10 @@ class User extends Authenticatable
 
     const ADMIN_USER = 'true';
     const REGULAR_USER = 'false';
+
+    //Defines table users for this model in DB
+    //Buyers and sellers extend User, they shouldn't have their own tables
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -59,8 +63,8 @@ class User extends Authenticatable
         return $this->admin == User::ADMIN_USER;
     }
 
-    public function generateVerificationCode()
+    public static function generateVerificationCode()
     {
-        return $this->str_random(40);
+        return str_random(40);
     }
 }

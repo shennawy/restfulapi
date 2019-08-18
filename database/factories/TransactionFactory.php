@@ -1,6 +1,8 @@
 <?php
 
 use App\Transaction;
+use App\Seller;
+use App\User;
 use Faker\Generator as Faker;
 
 $factory->define(Transaction::class, function (Faker $faker) {
