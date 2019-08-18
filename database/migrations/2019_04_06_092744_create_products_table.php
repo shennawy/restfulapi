@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('seller_id')->unsigned();
             $table->timestamps();
             //Here we use table name, not model name
-            $table->foreign('seller_id')->reference('id')->on('users');
+            $table->foreign('seller_id')->references('id')->on('users');
         });
     }
 
