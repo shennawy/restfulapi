@@ -44,6 +44,23 @@ class User extends Authenticatable
         'verification_token',
     ];
 
+    //This is an mutator, changes data in model
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = strtolower($name);
+    }
+
+    //This is a accessor, changes data in view, not model
+    public function getNameAttribute($name)
+    {
+        //Cast to uppercase
+        return ucwords($name);
+    }
+
+    public function setEmailAttribute($email)
+    {
+        $this->attributes['email'] = strtolower($email);
+    }
     /**
      * The attributes that should be cast to native types.
      *
