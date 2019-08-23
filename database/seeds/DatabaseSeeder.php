@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         //Pivot table has no model, will access using DB Facade
         DB::table('category_product')->truncate();
     
-        $usersQuantity = 200;
+        $usersQuantity = 1000;
         $productQuantity = 1000;        
         $categoryQuantity = 30;
         $transactionsQuantity = 1000;
