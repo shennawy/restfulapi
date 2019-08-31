@@ -19,7 +19,7 @@ class UserController extends ApiController
         $user = User::all();
         
         //Enables return of JSON object and response code
-        return response()->json(['data'=>$user], 200);
+        return $this->showAll($user);
 
         //return $users; doesn't enable data modification, or response code return
     }
@@ -49,7 +49,7 @@ class UserController extends ApiController
 
         $user = User::create($data);
 
-        return response()->json(['data'=>$user], 201);
+        return $this->showOne($user, 201);
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends ApiController
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return response()->json(['data'=>$user], 200);
+        return $this->showOne($user);
     }
     
     /**
@@ -112,7 +112,7 @@ class UserController extends ApiController
 
         $user->save();
 
-        return response()->json(['data' => $user], 200);
+        return $this->showOne($user);
     }
 
     /**
@@ -123,6 +123,10 @@ class UserController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return $this->showOne($user);
     }
 }
