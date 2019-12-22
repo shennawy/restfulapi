@@ -9,31 +9,26 @@ use App\User;
 
 class UserTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    
+    public function testIndex()
     {
-        $response = $this->get('/');
+        $response = $this->json('GET', '/users');
 
-        $response->assertStatus(200);
+        $response
+            ->assertStatus(200)
+            ->getStatusCode();
     }
 
-    public function testUserGet()
+    
+ 
+    public function testShow()
     {
-        $response = $this->get('/users');
+        $response = $this->json('GET', '/users/1');
 
-        $response->dump();
+        $response
+            ->assertStatus(200)
+            ->getStatusCode();
     }
 
-    public function testGetUserId()
-    {
-        $id = 5;
-
-        $response = $this->get('/users/5');
-
-        $response->dump();
-    }
+    
 }
