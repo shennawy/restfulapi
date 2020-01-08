@@ -12,6 +12,8 @@ $ composer update
 ```
 
 # Running the project
+- Copy file .env.example to .env
+- Edit .env file with database connection details
 - Type the below command in a terminal from the project's directory
 ``` sh
 $ php artisan serve
